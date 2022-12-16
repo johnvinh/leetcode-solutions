@@ -1,0 +1,2 @@
+public class BestTimeToBuySellStock {
+}
