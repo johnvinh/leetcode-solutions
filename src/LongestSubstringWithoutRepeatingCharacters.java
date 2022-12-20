@@ -3,18 +3,21 @@ import java.util.HashSet;
 
 public class LongestSubstringWithoutRepeatingCharacters {
     public int lengthOfLongestSubstring(String s) {
-        HashSet<Character> seenCharacters = new HashSet<>();
-        HashSet<Integer> lengths = new HashSet<>();
-        int currentLength = 0;
+        int maxLength = 0;
         for (int i = 0; i < s.length(); i++) {
-            if (seenCharacters.contains(s.charAt(i))) {
-                lengths.add(currentLength);
-                currentLength = 0;
-                seenCharacters.clear();
+            HashSet<Character> seenCharacters = new HashSet<>();
+            for (int j = i; j < s.length(); j++) {
+                if (seenCharacters.contains(s.charAt(j))) {
+                    break;
+                } else {
+                    seenCharacters.add(s.charAt(j));
+                }
             }
-            seenCharacters.add(s.charAt(i));
-            currentLength++;
+            int currentLength = seenCharacters.size();
+            if (currentLength > maxLength) {
+                maxLength = currentLength;
+            }
         }
-        return Collections.max(lengths);
+        return maxLength;
     }
 }
