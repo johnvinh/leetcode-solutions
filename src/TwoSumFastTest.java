@@ -18,4 +18,11 @@ class TwoSumFastTest {
         int target = 6;
         assertArrayEquals(new int[]{2, 1}, twoSum.twoSum(nums, target));
     }
+
+    @Test
+    public void example3() {
+        int[] nums = new int[]{3, 3};
+        int target = 6;
+        assertArrayEquals(new int[]{1, 0}, twoSum.twoSum(nums, target));
+    }
 }
