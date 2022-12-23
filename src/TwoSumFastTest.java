@@ -9,6 +9,6 @@ class TwoSumFastTest {
     public void example1() {
         int[] nums = new int[]{2, 7, 11, 15};
         int target = 9;
-        assertArrayEquals(new int[]{0, 1}, twoSum.twoSum(nums, target));
+        assertArrayEquals(new int[]{1, 0}, twoSum.twoSum(nums, target));
     }
 }
