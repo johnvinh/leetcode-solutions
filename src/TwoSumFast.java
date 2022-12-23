@@ -5,7 +5,7 @@ public class TwoSumFast {
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             int difference = target - nums[i];
-            int complement = Math.abs(difference - target);
+            int complement = target - difference;
             if (map.containsKey(complement)) {
                 return new int[]{i, map.get(complement)};
             }
