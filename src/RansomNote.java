@@ -14,9 +14,13 @@ public class RansomNote {
     public boolean canConstruct(String ransomNote, String magazine) {
         HashMap<Character, Integer> ransomNoteLetterCounts = getLetterCounts(ransomNote);
         HashMap<Character, Integer> magazineLetterCounts = getLetterCounts(magazine);
-        for (int i = 0; i < ransomNoteLetterCounts.keySet().size(); i++) {
-            
+        for (Character letter : ransomNoteLetterCounts.keySet()) {
+            Integer requiredNumber = ransomNoteLetterCounts.get(letter);
+            Integer actualNumber = magazineLetterCounts.getOrDefault(letter, 0);
+            if (actualNumber < requiredNumber) {
+                return false;
+            }
         }
-        return false;
+        return true;
     }
 }
