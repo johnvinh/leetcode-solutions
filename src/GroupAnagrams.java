@@ -16,10 +16,10 @@ public class GroupAnagrams {
         // Anagrams will have the same number of characters, thus the same letterCount hashmap
         HashMap<HashMap<Character, Integer>, ArrayList<String>> anagramGroups = new HashMap<>();
 
-        for (int i = 0; i < strs.length; i++) {
-            HashMap<Character, Integer> letterCounts = getLetterCounts(strs[i]);
+        for (String str : strs) {
+            HashMap<Character, Integer> letterCounts = getLetterCounts(str);
             anagramGroups.computeIfAbsent(letterCounts, k -> new ArrayList<>());
-            anagramGroups.get(letterCounts).add(strs[i]);
+            anagramGroups.get(letterCounts).add(str);
         }
         List<List<String>> out = new ArrayList<>();
         for (HashMap<Character, Integer> group : anagramGroups.keySet()) {
