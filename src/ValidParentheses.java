@@ -14,6 +14,9 @@ public class ValidParentheses {
             if (closing.containsKey(s.charAt(i))) { // Opening bracket
                 brackets.add(s.charAt(i));
             } else { // Closing bracket
+                if (brackets.isEmpty()) {
+                    return false;
+                }
                 Character openingBracket = brackets.pop();
                 if (s.charAt(i) != closing.get(openingBracket)) {
                     return false;
